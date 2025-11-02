@@ -1,4 +1,4 @@
-FlappyLove
+#FlappyLove
 FlappyLove – A Bite-Sized Challenge with a Big Retro Heart Born from a 2-day Game Jam and built in Godot 4.5.1, FlappyLove delivers a fast-paced, pixel-perfect platforming experience in under 10 minutes.
 
 Technical Details:
