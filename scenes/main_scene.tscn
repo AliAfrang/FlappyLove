@@ -1,0 +1,203 @@
+[gd_scene load_steps=7 format=3 uid="uid://rc7baoymabi3"]
+
+[ext_resource type="Script" uid="uid://b41fhjb8sod1o" path="res://scenes/main_scene.gd" id="1_gubc5"]
+[ext_resource type="Texture2D" uid="uid://cb3fw6j2c364v" path="res://assets/bird3.png" id="1_pw63i"]
+[ext_resource type="Shader" uid="uid://dh3mcy7eksadt" path="res://scenes/crt.gdshader" id="2_7ykc4"]
+[ext_resource type="Texture2D" uid="uid://den4sx3n8oo4t" path="res://assets/pipe.png" id="3_pu3yx"]
+[ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="4_gubc5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pu3yx"]
+shader = ExtResource("2_7ykc4")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.010000000475
+shader_parameter/scanlines_width = 0.5
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 400)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 3.68500017177762
+shader_parameter/distort_intensity = 0.0130000006175
+shader_parameter/noise_opacity = 0.770000036575
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.10800000513
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.2
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.07600005111
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5770000274075
+
+[node name="mainScene" type="Node2D" node_paths=PackedStringArray("btns")]
+script = ExtResource("1_gubc5")
+btns = [NodePath("easy2"), NodePath("hard"), NodePath("pro"), NodePath("legend")]
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(1, 257)
+texture = ExtResource("4_gubc5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -319.0
+offset_top = 195.0
+offset_right = 166.0
+offset_bottom = 311.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 1, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 65
+text = "Flappy Love"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -37.0
+offset_top = 259.0
+offset_right = 470.0
+offset_bottom = 375.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.46225083, 0.7467622, 0.22894305, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "by Ali Afrang"
+horizontal_alignment = 1
+
+[node name="easy2" type="Node2D" parent="."]
+modulate = Color(2.117, 2.117, 2.117, 0.431)
+position = Vector2(0, -198)
+scale = Vector2(0.9, 0.9)
+
+[node name="easy" type="Sprite2D" parent="easy2"]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(0, 50)
+scale = Vector2(75, 20)
+texture = ExtResource("1_pw63i")
+
+[node name="Label2" type="Label" parent="easy2"]
+offset_left = -88.0
+offset_top = 23.0
+offset_right = 87.0
+offset_bottom = 99.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Easy"
+horizontal_alignment = 1
+
+[node name="hard" type="Node2D" parent="."]
+modulate = Color(2.117, 2.117, 2.117, 0.412)
+position = Vector2(0, -58)
+scale = Vector2(0.9, 0.9)
+
+[node name="regular" type="Sprite2D" parent="hard"]
+modulate = Color(0.627451, 0.32156864, 0, 1)
+scale = Vector2(75, 20)
+texture = ExtResource("1_pw63i")
+
+[node name="Label3" type="Label" parent="hard"]
+offset_left = -88.0
+offset_top = -30.0
+offset_right = 87.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "Hard"
+horizontal_alignment = 1
+
+[node name="pro" type="Node2D" parent="."]
+modulate = Color(2.117, 2.117, 2.117, 0.412)
+position = Vector2(0, 32)
+scale = Vector2(0.9, 0.9)
+
+[node name="easy3" type="Sprite2D" parent="pro"]
+modulate = Color(2.686077, 0.31205627, 0, 1)
+scale = Vector2(75, 20)
+texture = ExtResource("1_pw63i")
+
+[node name="Label4" type="Label" parent="pro"]
+offset_left = -99.0
+offset_top = -23.0
+offset_right = 99.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Pro player"
+horizontal_alignment = 1
+justification_flags = 161
+metadata/_edit_use_anchors_ = true
+
+[node name="legend" type="Node2D" parent="."]
+modulate = Color(2.117, 2.117, 2.117, 0.412)
+position = Vector2(0, 122)
+scale = Vector2(0.9, 0.9)
+
+[node name="easy4" type="Sprite2D" parent="legend"]
+modulate = Color(0.57397705, 0.07702833, 0.7003199, 1)
+scale = Vector2(75, 20)
+texture = ExtResource("1_pw63i")
+
+[node name="Label5" type="Label" parent="legend"]
+offset_left = -99.0
+offset_top = -33.0
+offset_right = 99.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Legend"
+horizontal_alignment = 1
+justification_flags = 161
+
+[node name="pointer" type="Node2D" parent="."]
+position = Vector2(0, -198)
+
+[node name="Sprite2D" type="Sprite2D" parent="pointer"]
+position = Vector2(-351.20508, 49.999996)
+rotation = 1.5707964
+scale = Vector2(1, 1.2435896)
+texture = ExtResource("3_pu3yx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="pointer"]
+position = Vector2(620, 50)
+rotation = 4.712389
+scale = Vector2(1, 1.2435896)
+texture = ExtResource("3_pu3yx")
+
+[node name="Label3" type="Label" parent="pointer"]
+modulate = Color(1, 1, 1, 0.48235294)
+offset_left = -282.0
+offset_top = 28.0
+offset_right = -12.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 25
+text = "press  Entere"
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pu3yx")
+offset_left = -580.0
+offset_top = -339.0
+offset_right = 586.0
+offset_bottom = 326.0
+mouse_filter = 2
+metadata/_edit_lock_ = true

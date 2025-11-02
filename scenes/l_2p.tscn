@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://bajxb7okb5i2o"]
+
+[ext_resource type="PackedScene" uid="uid://v4rsi5jom2x6" path="res://scenes/bird.tscn" id="2_p4cpq"]
+[ext_resource type="Texture2D" uid="uid://den4sx3n8oo4t" path="res://assets/pipe.png" id="6_itgsl"]
+[ext_resource type="PackedScene" uid="uid://c26vukiqq23ax" path="res://scenes/bird2.tscn" id="7_a6pjg"]
+[ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="7_yr65b"]
+[ext_resource type="Shader" uid="uid://dh3mcy7eksadt" path="res://scenes/crt.gdshader" id="8_nqkk7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pohe"]
+size = Vector2(64, 554)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tq14"]
+size = Vector2(1163, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vdc2"]
+shader = ExtResource("8_nqkk7")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.010000000475
+shader_parameter/scanlines_width = 0.5
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 400)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 3.68500017177762
+shader_parameter/distort_intensity = 0.0130000006175
+shader_parameter/noise_opacity = 0.7230000343425
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.014000000665
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.2
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.07600005111
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5770000274075
+
+[node name="L1" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ingame" type="Node2D" parent="."]
+
+[node name="Bird" parent="ingame" instance=ExtResource("2_p4cpq")]
+position = Vector2(-329, 0)
+
+[node name="time" type="Label" parent="ingame"]
+visible = false
+offset_left = -47.0
+offset_top = -293.0
+offset_right = 50.0
+offset_bottom = -177.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.87058824, 0, 0.03529412, 1)
+theme_override_colors/font_outline_color = Color(0.050510764, 0.050510757, 0.050510757, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 85
+text = "10"
+horizontal_alignment = 1
+
+[node name="point" type="StaticBody2D" parent="ingame" groups=["point"]]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 250)
+scale = Vector2(0.5, 0.058)
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/point"]
+texture = ExtResource("6_itgsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/point"]
+shape = SubResource("RectangleShape2D_1pohe")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ingame" groups=["jiz"]]
+position = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(0, 296)
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(0, -296)
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(-552, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(552, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(-620, 19)
+rotation = 1.5707964
+scale = Vector2(0.5, 1)
+texture = ExtResource("7_yr65b")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(629, 19)
+rotation = 4.712389
+scale = Vector2(0.5, 1)
+texture = ExtResource("7_yr65b")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(-17, -367)
+rotation = 3.1415927
+scale = Vector2(0.7, 1)
+texture = ExtResource("7_yr65b")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(0, 371)
+scale = Vector2(0.7, 1)
+texture = ExtResource("7_yr65b")
+
+[node name="gameover" type="ColorRect" parent="ingame"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -672.0
+offset_top = -408.0
+offset_right = 621.0
+offset_bottom = 329.0
+color = Color(0, 0, 0, 1)
+
+[node name="r" type="Label" parent="ingame"]
+offset_left = 55.999985
+offset_top = -294.0
+offset_right = 541.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(1, 0, 0, 0.41568628)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 200
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="b" type="Label" parent="ingame"]
+offset_left = -558.0
+offset_top = -294.0
+offset_right = -73.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(8.4228816e-07, 0.34515673, 0.37636226, 0.41568628)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 200
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bird2" parent="ingame" instance=ExtResource("7_a6pjg")]
+position = Vector2(297, 0)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5vdc2")
+offset_left = -580.0
+offset_top = -339.0
+offset_right = 586.0
+offset_bottom = 326.0
+metadata/_edit_lock_ = true

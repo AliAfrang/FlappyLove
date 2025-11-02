@@ -1,0 +1,443 @@
+[gd_scene load_steps=23 format=3 uid="uid://dx5s36wu3ms25"]
+
+[ext_resource type="Script" uid="uid://bluh2xwcbhyeh" path="res://scenes/l_1.gd" id="1_huy2v"]
+[ext_resource type="PackedScene" uid="uid://v4rsi5jom2x6" path="res://scenes/bird.tscn" id="2_2c6tk"]
+[ext_resource type="Texture2D" uid="uid://ch8b6n078cqfq" path="res://assets/correctional-facility-jail-jail-cell-lock-up-prison-cell-2-svgrepo-com.png" id="4_2nsxq"]
+[ext_resource type="Texture2D" uid="uid://533ubvnyvpxe" path="res://assets/bird2.png" id="5_2llvi"]
+[ext_resource type="Script" uid="uid://v0tc5mptqold" path="res://scenes/eye.gd" id="6_ueyjk"]
+[ext_resource type="Texture2D" uid="uid://cb3fw6j2c364v" path="res://assets/bird3.png" id="7_q2acm"]
+[ext_resource type="Script" uid="uid://c7mbwo26pr5in" path="res://scenes/blade_2.gd" id="8_52h2h"]
+[ext_resource type="Texture2D" uid="uid://7sjbmtig7wkq" path="res://assets/blade-cut-rotate-precision-svgrepo-com.png" id="9_a65wd"]
+[ext_resource type="Script" uid="uid://c1ebp2f3s7m2s" path="res://scenes/gol.gd" id="10_sc420"]
+[ext_resource type="Texture2D" uid="uid://den4sx3n8oo4t" path="res://assets/pipe.png" id="12_hywqw"]
+[ext_resource type="Texture2D" uid="uid://bdcwae7knr86s" path="res://assets/1761890939898.png" id="12_o2h4v"]
+[ext_resource type="Texture2D" uid="uid://c4hcue8s5h2de" path="res://assets/1761891089653.png" id="13_0b3o4"]
+[ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="13_b7crv"]
+[ext_resource type="Shader" uid="uid://dh3mcy7eksadt" path="res://scenes/crt.gdshader" id="15_cy2jh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpecs"]
+size = Vector2(114, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2das"]
+size = Vector2(58.246063, 506.0625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tq14"]
+size = Vector2(1163, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_huy2v"]
+radius = 107.0
+height = 218.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0b3o4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_io32f"]
+radius = 103.75452
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b3o4"]
+size = Vector2(23.760183, 80.07933)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vdc2"]
+shader = ExtResource("15_cy2jh")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.010000000475
+shader_parameter/scanlines_width = 0.5
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 400)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 3.68500017177762
+shader_parameter/distort_intensity = 0.0130000006175
+shader_parameter/noise_opacity = 0.7230000343425
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.014000000665
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.2
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.07600005111
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5770000274075
+
+[node name="L1" type="Node2D"]
+script = ExtResource("1_huy2v")
+inlevel = 4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="intro" type="ColorRect" parent="."]
+visible = false
+offset_left = -672.0
+offset_top = -408.0
+offset_right = 621.0
+offset_bottom = 329.0
+color = Color(0, 0, 0, 1)
+
+[node name="ingame" type="Node2D" parent="."]
+
+[node name="Bird" parent="ingame" instance=ExtResource("2_2c6tk")]
+position = Vector2(-276, -153)
+scale = Vector2(0.8, 0.8)
+
+[node name="time" type="Label" parent="ingame"]
+visible = false
+offset_left = -47.0
+offset_top = -293.0
+offset_right = 50.0
+offset_bottom = -177.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.87058824, 0, 0.03529412, 1)
+theme_override_colors/font_outline_color = Color(0.050510764, 0.050510757, 0.050510757, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 85
+text = "10"
+horizontal_alignment = 1
+
+[node name="girl" type="Area2D" parent="ingame" groups=["girl"]]
+position = Vector2(388, -177)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ingame/girl"]
+modulate = Color(0.6666667, 0.6666667, 0.6666667, 0.8901961)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_2nsxq")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/girl"]
+texture = ExtResource("5_2llvi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/girl"]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_bpecs")
+
+[node name="eye" type="RigidBody2D" parent="ingame/girl" node_paths=PackedStringArray("player")]
+position = Vector2(-9, -6)
+scale = Vector2(0.9, 0.9)
+gravity_scale = 0.0
+script = ExtResource("6_ueyjk")
+player = NodePath("../../oof/StaticBody2D")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ingame/girl/eye"]
+position = Vector2(3.636322, 2.0909119)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_q2acm")
+
+[node name="platforms" type="Node2D" parent="ingame"]
+position = Vector2(244.99998, -26)
+scale = Vector2(1.1, 1.1)
+
+[node name="gol" type="StaticBody2D" parent="ingame/platforms" groups=["jiz"]]
+position = Vector2(-507.27274, 485)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("10_sc420")
+delay = 0.01
+timesof = 0.0
+timeson = 0.0
+movement = 0.8
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/platforms/gol"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_hywqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/platforms/gol"]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_p2das")
+
+[node name="gol2" type="StaticBody2D" parent="ingame/platforms" groups=["jiz"]]
+position = Vector2(-618.182, 485)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("10_sc420")
+firstdelay = 0.3
+delay = 0.02
+timesof = 0.0
+timeson = 0.0
+movement = 7.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/platforms/gol2"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_hywqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/platforms/gol2"]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_p2das")
+
+[node name="gol3" type="StaticBody2D" parent="ingame/platforms" groups=["jiz"]]
+position = Vector2(-400.9091, 485)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("10_sc420")
+firstdelay = 0.1
+delay = 0.005
+timesof = 0.0
+timeson = 0.0
+movement = 2.5
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/platforms/gol3"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_hywqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/platforms/gol3"]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_p2das")
+
+[node name="gol4" type="StaticBody2D" parent="ingame/platforms" groups=["jiz"]]
+position = Vector2(-303.63638, 485)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("10_sc420")
+delay = 0.01
+timesof = 0.0
+timeson = 0.0
+movement = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/platforms/gol4"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_hywqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/platforms/gol4"]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_p2das")
+
+[node name="gol5" type="StaticBody2D" parent="ingame/platforms" groups=["jiz"]]
+position = Vector2(-200.90909, 485)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("10_sc420")
+delay = 0.02
+timesof = 0.0
+timeson = 0.0
+movement = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/platforms/gol5"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_hywqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/platforms/gol5"]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_p2das")
+
+[node name="gol6" type="StaticBody2D" parent="ingame/platforms" groups=["jiz"]]
+position = Vector2(-98.18182, 485)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("10_sc420")
+delay = 0.008
+timesof = 0.0
+timeson = 0.0
+movement = 0.8
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/platforms/gol6"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_hywqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/platforms/gol6"]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_p2das")
+
+[node name="gol7" type="StaticBody2D" parent="ingame/platforms" groups=["jiz"]]
+position = Vector2(-3.6363678, 485)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("10_sc420")
+delay = 0.007
+timesof = 0.0
+timeson = 0.0
+movement = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/platforms/gol7"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_hywqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/platforms/gol7"]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_p2das")
+
+[node name="gol8" type="StaticBody2D" parent="ingame/platforms" groups=["jiz"]]
+position = Vector2(84.54544, 485)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("10_sc420")
+delay = 0.005
+timesof = 0.0
+timeson = 0.0
+movement = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/platforms/gol8"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_hywqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/platforms/gol8"]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_p2das")
+
+[node name="gol9" type="StaticBody2D" parent="ingame/platforms" groups=["jiz"]]
+position = Vector2(181.81818, 485)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("10_sc420")
+timesof = 0.0
+timeson = 0.0
+movement = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/platforms/gol9"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_hywqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/platforms/gol9"]
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_p2das")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ingame" groups=["jiz"]]
+position = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(0, 296)
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(0, -296)
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(-552, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(552, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(-620, 19)
+rotation = 1.5707964
+scale = Vector2(0.5, 1)
+texture = ExtResource("13_b7crv")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(629, 19)
+rotation = 4.712389
+scale = Vector2(0.5, 1)
+texture = ExtResource("13_b7crv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(-17, -367)
+rotation = 3.1415927
+scale = Vector2(0.7, 1)
+texture = ExtResource("13_b7crv")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(0, 371)
+scale = Vector2(0.7, 1)
+texture = ExtResource("13_b7crv")
+
+[node name="gameover" type="ColorRect" parent="ingame"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -672.0
+offset_top = -408.0
+offset_right = 621.0
+offset_bottom = 329.0
+color = Color(0, 0, 0, 1)
+
+[node name="div" type="StaticBody2D" parent="ingame" groups=["div", "jiz"]]
+position = Vector2(-2.9999998, -121.99999)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/div"]
+position = Vector2(0, -82.999985)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_0b3o4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/div"]
+shape = SubResource("CapsuleShape2D_huy2v")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="ingame/div"]
+offset_left = -111.25
+offset_top = -173.00002
+offset_right = 111.75
+offset_bottom = -153.00002
+color = Color(0, 0, 0, 1)
+
+[node name="health" type="ColorRect" parent="ingame/div/ColorRect" groups=["blade"]]
+material = SubResource("ShaderMaterial_0b3o4")
+layout_mode = 1
+offset_left = 1.5
+offset_top = 2.0
+offset_right = 229.5
+offset_bottom = 18.5
+scale = Vector2(0.96, 0.96)
+color = Color(1, 0, 0, 1)
+
+[node name="rotater" type="Node2D" parent="ingame/div"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="blade" type="StaticBody2D" parent="ingame/div/rotater" groups=["jiz"]]
+position = Vector2(-1.250005, 166.24997)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("8_52h2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/div/rotater/blade"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_a65wd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/div/rotater/blade"]
+shape = SubResource("CircleShape2D_io32f")
+
+[node name="blade2" type="StaticBody2D" parent="ingame/div/rotater" groups=["jiz"]]
+position = Vector2(-1.25, -166.25)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("8_52h2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/div/rotater/blade2"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_a65wd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/div/rotater/blade2"]
+shape = SubResource("CircleShape2D_io32f")
+
+[node name="blade3" type="StaticBody2D" parent="ingame/div/rotater" groups=["jiz"]]
+position = Vector2(-166, 0)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("8_52h2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/div/rotater/blade3"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_a65wd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/div/rotater/blade3"]
+shape = SubResource("CircleShape2D_io32f")
+
+[node name="blade4" type="StaticBody2D" parent="ingame/div/rotater" groups=["jiz"]]
+position = Vector2(166, 0)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("8_52h2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/div/rotater/blade4"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_a65wd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/div/rotater/blade4"]
+shape = SubResource("CircleShape2D_io32f")
+
+[node name="oof" type="Area2D" parent="ingame" groups=["blade"]]
+position = Vector2(402, 27)
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/oof" groups=["blade"]]
+rotation = 0.22689278
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_o2h4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/oof"]
+position = Vector2(3.6905823, -15.825515)
+rotation = 0.2268928
+shape = SubResource("RectangleShape2D_0b3o4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ingame/oof"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5vdc2")
+offset_left = -580.0
+offset_top = -339.0
+offset_right = 586.0
+offset_bottom = 326.0
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="ingame/oof" to="." method="_on_oof_body_entered"]

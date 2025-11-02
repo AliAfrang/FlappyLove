@@ -1,0 +1,187 @@
+[gd_scene load_steps=15 format=3 uid="uid://24dwrt3vsl7o"]
+
+[ext_resource type="Script" uid="uid://bluh2xwcbhyeh" path="res://scenes/l_1.gd" id="1_ewcsf"]
+[ext_resource type="PackedScene" uid="uid://v4rsi5jom2x6" path="res://scenes/bird.tscn" id="1_j0xu3"]
+[ext_resource type="Texture2D" uid="uid://ch8b6n078cqfq" path="res://assets/correctional-facility-jail-jail-cell-lock-up-prison-cell-2-svgrepo-com.png" id="3_1pohe"]
+[ext_resource type="Texture2D" uid="uid://533ubvnyvpxe" path="res://assets/bird2.png" id="4_4mwb2"]
+[ext_resource type="Shader" uid="uid://dh3mcy7eksadt" path="res://scenes/crt.gdshader" id="4_ewcsf"]
+[ext_resource type="Script" uid="uid://v0tc5mptqold" path="res://scenes/eye.gd" id="4_l8j0n"]
+[ext_resource type="Texture2D" uid="uid://cb3fw6j2c364v" path="res://assets/bird3.png" id="5_7tq14"]
+[ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="6_l8j0n"]
+[ext_resource type="PackedScene" uid="uid://xwu6qenh171e" path="res://scenes/wall.tscn" id="7_bpecs"]
+[ext_resource type="Texture2D" uid="uid://raqlg6rgfw6v" path="res://assets/key-svgrepo-com.png" id="9_bpecs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpecs"]
+size = Vector2(114, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tq14"]
+size = Vector2(1163, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljem3"]
+size = Vector2(53.74012, 19.798992)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vdc2"]
+shader = ExtResource("4_ewcsf")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.010000000475
+shader_parameter/scanlines_width = 0.5
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 400)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 3.68500017177762
+shader_parameter/distort_intensity = 0.0130000006175
+shader_parameter/noise_opacity = 0.7230000343425
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.014000000665
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.2
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.07600005111
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5770000274075
+
+[node name="L1" type="Node2D"]
+script = ExtResource("1_ewcsf")
+inlevel = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="intro" type="ColorRect" parent="."]
+visible = false
+offset_left = -672.0
+offset_top = -408.0
+offset_right = 621.0
+offset_bottom = 329.0
+color = Color(0, 0, 0, 1)
+
+[node name="ingame" type="Node2D" parent="."]
+
+[node name="Bird" parent="ingame" instance=ExtResource("1_j0xu3")]
+position = Vector2(-329, 0)
+
+[node name="time" type="Label" parent="ingame"]
+visible = false
+offset_left = -47.0
+offset_top = -293.0
+offset_right = 50.0
+offset_bottom = -177.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.87058824, 0, 0.03529412, 1)
+theme_override_colors/font_outline_color = Color(0.050510764, 0.050510757, 0.050510757, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 85
+text = "10"
+horizontal_alignment = 1
+
+[node name="girl" type="Area2D" parent="ingame" groups=["girl"]]
+position = Vector2(331, -186)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ingame/girl"]
+modulate = Color(0.6666667, 0.6666667, 0.6666667, 0.8901961)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_1pohe")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/girl"]
+texture = ExtResource("4_4mwb2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/girl"]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_bpecs")
+
+[node name="eye" type="RigidBody2D" parent="ingame/girl" node_paths=PackedStringArray("player")]
+position = Vector2(-9, -6)
+scale = Vector2(1.1, 1.1)
+gravity_scale = 0.0
+script = ExtResource("4_l8j0n")
+player = NodePath("../../key")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ingame/girl/eye"]
+position = Vector2(3.636322, 2.0909119)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_7tq14")
+
+[node name="wall" parent="ingame" instance=ExtResource("7_bpecs")]
+position = Vector2(1, 262)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ingame" groups=["jiz"]]
+position = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(0, 296)
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(0, -296)
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(-552, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ingame/StaticBody2D"]
+position = Vector2(552, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_7tq14")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(-620, 19)
+rotation = 1.5707964
+scale = Vector2(0.5, 1)
+texture = ExtResource("6_l8j0n")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(629, 19)
+rotation = 4.712389
+scale = Vector2(0.5, 1)
+texture = ExtResource("6_l8j0n")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(-17, -367)
+rotation = 3.1415927
+scale = Vector2(0.7, 1)
+texture = ExtResource("6_l8j0n")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/StaticBody2D"]
+position = Vector2(0, 371)
+scale = Vector2(0.7, 1)
+texture = ExtResource("6_l8j0n")
+
+[node name="key" type="StaticBody2D" parent="ingame" groups=["key"]]
+position = Vector2(324.99997, 162)
+rotation = -2.3561945
+scale = Vector2(0.8999999, 0.8999999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ingame/key"]
+position = Vector2(3.874302e-07, 1.9999982)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_ljem3")
+
+[node name="Sprite2D" type="Sprite2D" parent="ingame/key"]
+modulate = Color(0.13333334, 0.11372549, 0, 0.8509804)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_bpecs")
+
+[node name="gameover" type="ColorRect" parent="ingame"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -672.0
+offset_top = -408.0
+offset_right = 621.0
+offset_bottom = 329.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5vdc2")
+offset_left = -580.0
+offset_top = -339.0
+offset_right = 586.0
+offset_bottom = 326.0
+metadata/_edit_lock_ = true

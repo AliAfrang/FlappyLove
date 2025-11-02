@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuy6rrf63qfxn"]
+
+[ext_resource type="Script" uid="uid://du7ndlkqq52lp" path="res://scenes/curtain.gd" id="1_5vt4c"]
+[ext_resource type="Texture2D" uid="uid://den4sx3n8oo4t" path="res://assets/pipe.png" id="2_skt0b"]
+[ext_resource type="Shader" uid="uid://dh3mcy7eksadt" path="res://scenes/crt.gdshader" id="3_agusd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blfv3"]
+shader = ExtResource("3_agusd")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.010000000475
+shader_parameter/scanlines_width = 0.5
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 400)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 3.68500017177762
+shader_parameter/distort_intensity = 0.0130000006175
+shader_parameter/noise_opacity = 0.770000036575
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.10800000513
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.2
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.07600005111
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5770000274075
+
+[node name="curtain" type="Node2D"]
+script = ExtResource("1_5vt4c")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -420.0
+offset_top = -85.0
+offset_right = 447.0
+offset_bottom = 514.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.45882353, 0.7411765, 0.22745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 50
+text = "Thanks for playing!
+
+
+by:
+Ali Afrang
+"
+horizontal_alignment = 1
+
+[node name="pointer" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-120, -96)
+
+[node name="Sprite2D" type="Sprite2D" parent="pointer"]
+position = Vector2(-500, 50)
+rotation = 1.5707964
+scale = Vector2(1, 1.2435896)
+texture = ExtResource("2_skt0b")
+
+[node name="Sprite2D2" type="Sprite2D" parent="pointer"]
+position = Vector2(770, 50)
+rotation = 4.712389
+scale = Vector2(1, 1.2435896)
+texture = ExtResource("2_skt0b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_blfv3")
+offset_left = -580.0
+offset_top = -339.0
+offset_right = 586.0
+offset_bottom = 326.0
+metadata/_edit_lock_ = true

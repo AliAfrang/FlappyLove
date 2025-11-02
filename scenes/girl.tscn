@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://qxlgos6ixgd6"]
+
+[ext_resource type="Texture2D" uid="uid://ch8b6n078cqfq" path="res://assets/correctional-facility-jail-jail-cell-lock-up-prison-cell-2-svgrepo-com.png" id="1_3h4fo"]
+[ext_resource type="Texture2D" uid="uid://533ubvnyvpxe" path="res://assets/bird2.png" id="2_3c2jt"]
+[ext_resource type="Script" uid="uid://v0tc5mptqold" path="res://scenes/eye.gd" id="3_d4rsq"]
+[ext_resource type="Texture2D" uid="uid://cb3fw6j2c364v" path="res://assets/bird3.png" id="4_vlhqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpecs"]
+size = Vector2(114, 114)
+
+[node name="girl" type="Area2D" groups=["girl"]]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.6666667, 0.6666667, 0.6666667, 0.8901961)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_3h4fo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3c2jt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_bpecs")
+
+[node name="eye" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(-9, -6)
+scale = Vector2(1.1, 1.1)
+gravity_scale = 0.0
+script = ExtResource("3_d4rsq")
+player = NodePath("")
+
+[node name="Sprite2D2" type="Sprite2D" parent="eye"]
+position = Vector2(3.636322, 2.0909119)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_vlhqa")
